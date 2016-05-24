@@ -20,5 +20,14 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/pio/poi-ooxml-schemas-3.12-20150511.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/pio/poi-scratchpad-3.12-20150511.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/pio/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/JSONArray/commons-beanutils-1.7.0.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/JSONArray/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/JSONArray/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/JSONArray/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/JSONArray/ezmorph-1.0.4.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/JSONArray/json-lib-2.2.2-jdk15.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/freemarker.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/gson-2.2.2.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
