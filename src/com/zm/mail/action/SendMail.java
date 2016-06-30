@@ -9,75 +9,75 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 /**
- * ÓÊ¼ş·¢ËÍ ÓÃµ½µÄÊÇmail.jar°ü
+ * é‚®ä»¶å‘é€ ç”¨åˆ°çš„æ˜¯mail.jaråŒ…
  * 
  * @author zm
  */
 public class SendMail {
 
 	/**
-	 * ÓÊ¼ş·¢ËÍ
+	 * é‚®ä»¶å‘é€
 	 * 
 	 * @param mailService
-	 *            ·¢¼şÈËÓÊÏä·şÎñÆ÷
+	 *            å‘ä»¶äººé‚®ç®±æœåŠ¡å™¨
 	 * @param str_from
-	 *            ·¢¼şÈËÓÊÏä
+	 *            å‘ä»¶äººé‚®ç®±
 	 * @param strFrom_pwd
-	 *            ·¢¼şÈËÃÜÂë
+	 *            å‘ä»¶äººå¯†ç 
 	 * @param str_to
-	 *            ÊÕ¼şÈË
+	 *            æ”¶ä»¶äºº
 	 * @param str_title
-	 *            ±êÌâ
+	 *            æ ‡é¢˜
 	 * @param str_content
-	 *            ÄÚÈİ
+	 *            å†…å®¹
 	 * @return
 	 */
 	public boolean Send(String mailService, String str_from,
 			String strFrom_pwd, String str_to, String str_title,
 			String str_content) {
 		try {
-			// ½¨Á¢ÓÊ¼ş»á»°
-			Properties props = new Properties(); // ÓÃÀ´ÔÚÒ»¸öÎÄ¼şÖĞ´æ´¢¼ü-Öµ¶ÔµÄ£¬ÆäÖĞ¼üºÍÖµÊÇÓÃµÈºÅ·Ö¸ôµÄ£¬
+			// å»ºç«‹é‚®ä»¶ä¼šè¯
+			Properties props = new Properties(); // ç”¨æ¥åœ¨ä¸€ä¸ªæ–‡ä»¶ä¸­å­˜å‚¨é”®-å€¼å¯¹çš„ï¼Œå…¶ä¸­é”®å’Œå€¼æ˜¯ç”¨ç­‰å·åˆ†éš”çš„ï¼Œ
 			/*
-			 * ´æ´¢·¢ËÍÓÊ¼ş·şÎñÆ÷µÄĞÅÏ¢
-			 * mail.debug µÈÓÚ¡®¡¯ ÊÇ¿ÉÒÔµ÷ÊÔ 
-			 * mail.smtp.antu ÈÏÖ¤
-			 * mail.smtp.host ÓÊÏä·şÎñÆ÷£¬¶Ë¿ÚÄ¬ÈÏ¿É²»Ğ´
-			 * mail.transport.protocol ÉèÖÃÁ¬½ÓµÄĞ­Òé
+			 * å­˜å‚¨å‘é€é‚®ä»¶æœåŠ¡å™¨çš„ä¿¡æ¯
+			 * mail.debug ç­‰äºâ€˜â€™ æ˜¯å¯ä»¥è°ƒè¯• 
+			 * mail.smtp.antu è®¤è¯
+			 * mail.smtp.host é‚®ç®±æœåŠ¡å™¨ï¼Œç«¯å£é»˜è®¤å¯ä¸å†™
+			 * mail.transport.protocol è®¾ç½®è¿æ¥çš„åè®®
 			 */
-			props.put("mail.smtp.host", mailService);// Í¬Ê±Í¨¹ıÑéÖ¤
+			props.put("mail.smtp.host", mailService);// åŒæ—¶é€šè¿‡éªŒè¯
 			/*
-			 * ¸ù¾İÊôĞÔĞÂ½¨Ò»¸öÓÊ¼ş»á»°£¬Èç¹ûÉèÖÃÎªfalse ·¢ËÍÊ±»á±¨´í553 relay check local fail
+			 * æ ¹æ®å±æ€§æ–°å»ºä¸€ä¸ªé‚®ä»¶ä¼šè¯ï¼Œå¦‚æœè®¾ç½®ä¸ºfalse å‘é€æ—¶ä¼šæŠ¥é”™553 relay check local fail
 			 */
 			props.put("mail.smtp.auth", "true");
 			props.setProperty("mail.transport.protocol", "smtp");
 			Session s = Session.getInstance(props);
 			// s.getDefaultInstance(props)
 
-			MimeMessage message = new MimeMessage(s); // ÓÉÓÊ¼ş»á»°ĞÂ½¨Ò»¸öÏûÏ¢¶ÔÏó
+			MimeMessage message = new MimeMessage(s); // ç”±é‚®ä»¶ä¼šè¯æ–°å»ºä¸€ä¸ªæ¶ˆæ¯å¯¹è±¡
 
-			InternetAddress from = new InternetAddress(str_from, str_title); // ÉèÖÃ·¢¼şÈËµÄµØÖ·
+			InternetAddress from = new InternetAddress(str_from, str_title); // è®¾ç½®å‘ä»¶äººçš„åœ°å€
 			message.setFrom(from);
 
-			// µ¥¸öÓÊ¼ş½ÓÊÕÈË
-			// InternetAddress to = new InternetAddress(str_to); //ÉèÖÃÊÕ¼şÈË,²¢ÉèÖÃÆä½ÓÊÕÀàĞÍÎªTO(pukeyouxintest3@163.com)
+			// å•ä¸ªé‚®ä»¶æ¥æ”¶äºº
+			// InternetAddress to = new InternetAddress(str_to); //è®¾ç½®æ”¶ä»¶äºº,å¹¶è®¾ç½®å…¶æ¥æ”¶ç±»å‹ä¸ºTO(pukeyouxintest3@163.com)
 			// message.setRecipient(Message.RecipientType.TO, to);
-			// ¶à¸öÓÊ¼ş½ÓÊÕÈË
+			// å¤šä¸ªé‚®ä»¶æ¥æ”¶äºº
 			message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(str_to));
-			// ÏÂ±ßµÄ·½Ê½¿ÉÒÔÉèÖÃ·¢ËÍÈËµÄêÇ³Æ
-			// message.setRecipients(RecipientType.TO, InternetAddress.parse(MimeUtility.encodeText("ÕÅ¿¬") + "<1004379401@qq.com>," + MimeUtility.encodeText("Íõ") +"<951343502@qq.com>"));
+			// ä¸‹è¾¹çš„æ–¹å¼å¯ä»¥è®¾ç½®å‘é€äººçš„æ˜µç§°
+			// message.setRecipients(RecipientType.TO, InternetAddress.parse(MimeUtility.encodeText("å¼ æ¥·") + "<1004379401@qq.com>," + MimeUtility.encodeText("ç‹") +"<951343502@qq.com>"));
 
-			message.setSubject(str_title);// ÉèÖÃ±êÌâ
+			message.setSubject(str_title);// è®¾ç½®æ ‡é¢˜
 
-			message.setText(str_content); // ·¢ËÍÎÄ±¾ÓÊ¼ş
-			// message.setContent(new Object()); //·¢ËÍ³¬ÎÄ±¾
-			message.saveChanges();// ´æ´¢ÓÊ¼şĞÅÏ¢
+			message.setText(str_content); // å‘é€æ–‡æœ¬é‚®ä»¶
+			// message.setContent(new Object()); //å‘é€è¶…æ–‡æœ¬
+			message.saveChanges();// å­˜å‚¨é‚®ä»¶ä¿¡æ¯
 
-			Transport transport = s.getTransport("smtp");// ·¢ËÍÓÊ¼ş
-			// ÒÔsmtp·½Ê½µÇÂ¼ÓÊÏä,µÚÒ»¸ö²ÎÊıÊÇ·¢ËÍÓÊ¼şÓÃµÄÓÊ¼ş·şÎñÆ÷SMTPµØÖ·,µÚ¶ş¸ö²ÎÊıÊÇ¶Ë¿ÚºÅ£»µÚÈı¸ö²ÎÊıÎªÓÃ»§Ãû,µÚËÄ¸ö²ÎÊıÎªÃÜÂë
+			Transport transport = s.getTransport("smtp");// å‘é€é‚®ä»¶
+			// ä»¥smtpæ–¹å¼ç™»å½•é‚®ç®±,ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯å‘é€é‚®ä»¶ç”¨çš„é‚®ä»¶æœåŠ¡å™¨SMTPåœ°å€,ç¬¬äºŒä¸ªå‚æ•°æ˜¯ç«¯å£å·ï¼›ç¬¬ä¸‰ä¸ªå‚æ•°ä¸ºç”¨æˆ·å,ç¬¬å››ä¸ªå‚æ•°ä¸ºå¯†ç 
 			transport.connect(mailService, 25, str_from, strFrom_pwd);
-			// ·¢ËÍÓÊ¼ş,ÆäÖĞµÚ¶ş¸ö²ÎÊıÊÇËùÓĞÒÑÉèºÃµÄÊÕ¼şÈËµØÖ·
+			// å‘é€é‚®ä»¶,å…¶ä¸­ç¬¬äºŒä¸ªå‚æ•°æ˜¯æ‰€æœ‰å·²è®¾å¥½çš„æ”¶ä»¶äººåœ°å€
 			transport.sendMessage(message, message.getAllRecipients());
 			transport.close();
 
@@ -91,8 +91,14 @@ public class SendMail {
 
 	public static void main(String[] args) {
 		SendMail s = new SendMail();
-		System.out.println(s.Send("mail.sinobpo.com.cn",
-				"min.zhang@sinobpo.com.cn", "1234%^&*", "<1004379401@qq.com>,<951343502@qq.com>", "²âÊÔÎÊÌâ´¦Àí", "ÕâÊÇÒ»¸öÄÚÈİ"));
+		
+		String mailService = ""; // å‘ä»¶äººé‚®ç®±æœåŠ¡å™¨
+		String str_from=""; //å‘ä»¶äººé‚®ç®±
+		String strFrom_pwd="";// å‘ä»¶äººå¯†ç  
+		String str_to = "";// æ”¶ä»¶äºº  å†™æ³•ä¾‹å­"<123566@qq.com>,<sdas123@qq.com>"
+		String str_title="";//  é‚®ä»¶æ ‡é¢˜
+		String str_content=""; //é‚®ä»¶å†…å®¹
+		System.out.println(s.Send(mailService,str_from,strFrom_pwd, str_to, str_title, str_content));
 	}
 
 }
